@@ -1,0 +1,84 @@
+.recovered{
+    color: rgb(52, 82, 57) !important;
+    background-color: rgb(189, 219, 195) ;
+}
+
+.deaths{
+    color: rgb(112, 58, 58) !important;
+    background-color: rgb(255,179,191);
+}
+
+.confirmed{
+    color: rgb(87, 87, 46) !important;
+    background-color: rgb(243, 243, 199);
+}
+
+.serius{
+    color: rgb(116, 64, 55) !important;
+    background-color: rgb(245, 195, 195);
+}
+
+.country{
+    background-color: rgb(255, 251, 251);
+}
+
+.country:hover {
+    background-color: rgb(216, 206, 206);
+}
+
+.img {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imgcont{
+    
+    margin: 20px auto;
+}
+
+.title{
+    text-align: center;
+    color: rgb(52, 82, 57);
+    font-size: 2.5em;
+}
+
+.formControl{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.MuiFormControl-root{
+    margin: 30px auto !important;
+}
+
+.maincont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.conf{
+    background-color: rgb(171, 233, 237);
+}
+
+.death{
+    background-color: rgb(255, 229, 228);
+}
+
+.recoverr{
+    background-color: rgb(224, 243, 223);
+}
+
+.imag{
+    width: 30%;
+    float: right;
+}
+
+.makeStyles-title-6{
+    font-size: 12px !important;
+}
