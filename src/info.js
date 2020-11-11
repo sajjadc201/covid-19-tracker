@@ -1,36 +1,32 @@
 import axios from "axios";
 
-export const fetchData = async()=>{
-    const res = await fetch(
-      "https://api.thevirustracker.com/free-api?countryTotals=ALL"
-    );
-    const res2 = res.json();
-    return res2
-    
-}
+export const fetchData = async () => {
+  const res = await fetch("https://corona.lmao.ninja/v2/countries");
+  const res2 = await res.json();
+  return res2;
+};
 
 export const fetchDailyData = async () => {
   try {
-    const {
-      data: { countryitems },
-    } = await axios.get(
-      "https://api.thevirustracker.com/free-api?countryTotals=ALL"
-    );
-    return Object.keys(countryitems[0]).map((country) => {
-      return countryitems[0][country].title;
-    });
-  } catch (error) {}
-};
+    const { data } = await axios.get("https://corona.lmao.ninja/v2/countries");
 
-export const fetchCountryData = async () => {
-  try {
-    const {
-      data: { confirmed, recovered, deaths, lastUpdate },
-    } = await axios.get("https://covid19.mathdro.id/api");
-    return { confirmed, recovered, deaths, lastUpdate };
+    return Object.keys(data).map((country) => {
+      return data[country].country;
+    });
   } catch (error) {
     console.log(error);
   }
 };
 
-
+export const fetchCountryData = async () => {
+  let changeableUrl = "https://corona.lmao.ninja/v2/all";
+  console.log();
+  try {
+    const {
+      data: { cases, recovered, deaths },
+    } = await axios.get(changeableUrl);
+    return { cases, recovered, deaths };
+  } catch (error) {
+    console.log(error);
+  }
+};

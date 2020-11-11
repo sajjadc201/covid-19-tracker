@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {fetchData} from "./info";
+import { fetchData } from "./info";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -9,8 +9,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import TablePagination from "@material-ui/core/TablePagination";
-
-
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -41,10 +39,8 @@ export const Card = () => {
   const [api, setapi] = useState({});
   useEffect(() => {
     const getData = async () => {
-      const { countryitems } = await fetchData();
-      setapi(countryitems[0]);
-    //   console.log(countryitems[0]);
-    
+      const data = await fetchData();
+      setapi(data);
     };
     getData();
   }, []);
@@ -83,20 +79,20 @@ export const Card = () => {
                     scope="row"
                     className="country"
                   >
-                    {api[val].title}
+                    {api[val].country}
                   </StyledTableCell>
                   <StyledTableCell align="right" className="confirmed">
-                    {api[val].total_cases}
+                    {api[val].cases}
                   </StyledTableCell>
                   <StyledTableCell align="right" className="recovered">
-                    {api[val].total_recovered}
+                    {api[val].recovered}
                   </StyledTableCell>
 
                   <StyledTableCell align="right" className="serius">
-                    {api[val].total_serious_cases}
+                    {api[val].critical}
                   </StyledTableCell>
                   <StyledTableCell align="right" className="deaths">
-                    {api[val].total_deaths}
+                    {api[val].deaths}
                   </StyledTableCell>
                 </StyledTableRow>
               );

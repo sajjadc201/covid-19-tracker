@@ -5,10 +5,9 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CountUp from "react-countup";
 
-
 const useStyles = makeStyles({
   root: {
-    minWidth: 200 ,
+    minWidth: 200,
     margin: "30px",
   },
   bullet: {
@@ -24,10 +23,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function DisplayCard({api: { confirmed, recovered, deaths, lastUpdate },
-}) {
+export default function DisplayCard({ api: { cases, recovered, deaths } }) {
   const classes = useStyles();
-  if (!confirmed) {
+  if (!cases) {
     return "Loading...";
   }
 
@@ -35,7 +33,7 @@ export default function DisplayCard({api: { confirmed, recovered, deaths, lastUp
     <div className="maincont">
       <Card className={classes.root}>
         <CardContent className="conf">
-          <img src="/diagnosed-cases.png" alt=""  className="imag" />
+          <img src="/diagnosed-cases.png" alt="" className="imag" />
           <Typography
             className={classes.title}
             color="textSecondary"
@@ -44,16 +42,12 @@ export default function DisplayCard({api: { confirmed, recovered, deaths, lastUp
             Total Confirmed Cases :
           </Typography>
           <Typography variant="h5" component="h2">
-            <CountUp
-              start={0}
-              end={confirmed["value"]}
-              duration={2.5}
-              separator={","}
-            />
+            <CountUp start={0} end={cases} duration={2.5} separator={","} />
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            {new Date(lastUpdate).toDateString()}
-          </Typography>
+          <Typography
+            className={classes.pos}
+            color="textSecondary"
+          ></Typography>
           <Typography variant="body2" component="p">
             Number of Active Cases of COVID-19
           </Typography>
@@ -70,16 +64,12 @@ export default function DisplayCard({api: { confirmed, recovered, deaths, lastUp
             Total Recovered Cases :
           </Typography>
           <Typography variant="h5" component="h2">
-            <CountUp
-              start={0}
-              end={recovered["value"]}
-              duration={2.5}
-              separator={","}
-            />
+            <CountUp start={0} end={recovered} duration={2.5} separator={","} />
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            {new Date(lastUpdate).toDateString()}
-          </Typography>
+          <Typography
+            className={classes.pos}
+            color="textSecondary"
+          ></Typography>
           <Typography variant="body2" component="p">
             Recovered Cases of COVID-19
           </Typography>
@@ -96,16 +86,12 @@ export default function DisplayCard({api: { confirmed, recovered, deaths, lastUp
             Total Deaths :
           </Typography>
           <Typography variant="h5" component="h2">
-            <CountUp
-              start={0}
-              end={deaths["value"]}
-              duration={2.5}
-              separator={","}
-            />
+            <CountUp start={0} end={deaths} duration={2.5} separator={","} />
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            {new Date(lastUpdate).toDateString()}
-          </Typography>
+          <Typography
+            className={classes.pos}
+            color="textSecondary"
+          ></Typography>
           <Typography variant="body2" component="p">
             Number of Deaths of COVID-19
           </Typography>
