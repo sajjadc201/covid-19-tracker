@@ -8,24 +8,28 @@ export const fetchData = async () => {
 
 export const fetchDailyData = async () => {
   try {
-    const { data } = await axios.get("https://corona.lmao.ninja/v2/countries");
+    const {
+      data: { countries },
+    } = await axios.get(`${"https://covid19.mathdro.id/api"}/countries`);
 
-    return Object.keys(data).map((country) => {
-      return data[country].country;
+    return countries.map((country) => {
+      return country.name;
     });
   } catch (error) {
     console.log(error);
   }
 };
-
-export const fetchCountryData = async () => {
-  let changeableUrl = "https://corona.lmao.ninja/v2/all";
-  console.log();
+const url = "https://covid19.mathdro.id/api";
+export const fetchCountryData = async (country) => {
+  let changeableUrl = url;
+  if (country) {
+    changeableUrl = `${url}/countries/${country}`;
+  }
   try {
     const {
-      data: { cases, recovered, deaths },
+      data: { confirmed, recovered, deaths, lastUpdate },
     } = await axios.get(changeableUrl);
-    return { cases, recovered, deaths };
+    return { confirmed, recovered, deaths, lastUpdate };
   } catch (error) {
     console.log(error);
   }

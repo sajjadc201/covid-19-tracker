@@ -4,7 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import useWebAnimations, { flip } from "@wellyshen/use-web-animations";
+import useWebAnimations, { slideInRight } from "@wellyshen/use-web-animations";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,8 +20,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
   const classes = useStyles();
-  // const { ref } = useWebAnimations({ ...slideInRight });
-  const { ref } = useWebAnimations({ ...flip });
+  const { keyframes, timing } = slideInRight;
+  const { ref } = useWebAnimations({
+    keyframes,
+    timing: {
+      ...timing,
+      delay: 1000, // Delay 1s
+      duration: timing.duration * 3, // Speed up the animation
+    },
+  });
 
   return (
     <div className={classes.root}>
@@ -34,10 +41,15 @@ export default function Header() {
         </Toolbar>
       </AppBar>
       <div className="title">
-        <h2 ref={ref}>Covid Tracker</h2>
+        <h2>Covid Tracker</h2>
       </div>
-      <div className="imgcont">
-        <img src="/corona.png" alt="img" className="img" />
+      <div className="images">
+        <div className="imgcont">
+          <img src="/crona.jpg" alt="img" className="img" />
+        </div>
+        <div>
+          <img src="/virus.jpg" alt="img" className="virus" ref={ref} />
+        </div>
       </div>
     </div>
   );

@@ -23,10 +23,12 @@ const useStyles = makeStyles({
   },
 });
 
-export default function DisplayCard({ api: { cases, recovered, deaths } }) {
+export default function DisplayCard({
+  api: { confirmed, recovered, deaths, lastUpdate },
+}) {
   const classes = useStyles();
-  if (!cases) {
-    return "Loading...";
+  if (!confirmed) {
+    return "Loading.....";
   }
 
   return (
@@ -42,7 +44,15 @@ export default function DisplayCard({ api: { cases, recovered, deaths } }) {
             Total Confirmed Cases :
           </Typography>
           <Typography variant="h5" component="h2">
-            <CountUp start={0} end={cases} duration={2.5} separator={","} />
+            <CountUp
+              start={0}
+              end={confirmed["value"]}
+              duration={2.5}
+              separator={","}
+            />
+            <Typography className={classes.pos} color="textSecondary">
+              {new Date(lastUpdate).toDateString()}
+            </Typography>
           </Typography>
           <Typography
             className={classes.pos}
@@ -64,7 +74,15 @@ export default function DisplayCard({ api: { cases, recovered, deaths } }) {
             Total Recovered Cases :
           </Typography>
           <Typography variant="h5" component="h2">
-            <CountUp start={0} end={recovered} duration={2.5} separator={","} />
+            <CountUp
+              start={0}
+              end={recovered["value"]}
+              duration={2.5}
+              separator={","}
+            />
+            <Typography className={classes.pos} color="textSecondary">
+              {new Date(lastUpdate).toDateString()}
+            </Typography>
           </Typography>
           <Typography
             className={classes.pos}
@@ -86,7 +104,15 @@ export default function DisplayCard({ api: { cases, recovered, deaths } }) {
             Total Deaths :
           </Typography>
           <Typography variant="h5" component="h2">
-            <CountUp start={0} end={deaths} duration={2.5} separator={","} />
+            <CountUp
+              start={0}
+              end={deaths["value"]}
+              duration={2.5}
+              separator={","}
+            />
+            <Typography className={classes.pos} color="textSecondary">
+              {new Date(lastUpdate).toDateString()}
+            </Typography>
           </Typography>
           <Typography
             className={classes.pos}

@@ -8,6 +8,7 @@ import { fetchCountryData } from "./info";
 
 export const App = () => {
   const [api, setapi] = useState({});
+  const [country, setcountries] = useState("");
   useEffect(() => {
     const apiData = async () => {
       const getApiData = await fetchCountryData();
@@ -15,10 +16,11 @@ export const App = () => {
     };
     apiData();
   }, []);
-  const handleCountryChange = (country) => {
-    console.log(country);
+  const handleCountryChange = async (country) => {
+    const getApiData = await fetchCountryData(country);
+    setapi(getApiData);
+    setcountries(getApiData);
   };
-
   return (
     <div>
       <Header />

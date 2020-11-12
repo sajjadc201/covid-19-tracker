@@ -1,24 +1,24 @@
-.recovered{
+.recovered {
     color: rgb(52, 82, 57) !important;
-    background-color: rgb(189, 219, 195) ;
+    background-color: rgb(189, 219, 195);
 }
 
-.deaths{
+.deaths {
     color: rgb(112, 58, 58) !important;
-    background-color: rgb(255,179,191);
+    background-color: rgb(255, 179, 191);
 }
 
-.confirmed{
+.confirmed {
     color: rgb(87, 87, 46) !important;
     background-color: rgb(243, 243, 199);
 }
 
-.serius{
+.serius {
     color: rgb(116, 64, 55) !important;
     background-color: rgb(245, 195, 195);
 }
 
-.country{
+.country {
     background-color: rgb(255, 251, 251);
 }
 
@@ -31,54 +31,66 @@
     height: auto;
     display: block;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 0;
 }
 
-.imgcont{
-    
-    margin: 20px auto;
+.imgcont {
+
+    margin: 0px;
 }
 
-.title{
+.title {
     text-align: center;
     color: rgb(52, 82, 57);
     font-size: 2.5em;
 }
 
-.formControl{
+.formControl {
     display: flex !important;
     justify-content: center;
     align-items: center;
 }
 
-.MuiFormControl-root{
+.MuiFormControl-root {
     margin: 30px auto !important;
 }
 
-.maincont{
+.maincont {
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
 
-.conf{
+.conf {
     background-color: rgb(171, 233, 237);
 }
 
-.death{
+.death {
     background-color: rgb(255, 229, 228);
 }
 
-.recoverr{
+.recoverr {
     background-color: rgb(224, 243, 223);
 }
 
-.imag{
+.imag {
     width: 30%;
     float: right;
 }
 
-.makeStyles-title-6{
+.makeStyles-title-6 {
     font-size: 12px !important;
+}
+
+
+.images {
+    display: flex;
+}
+
+
+.virus {
+    max-width: 50%;
+    max-height: 80%;
+    margin-top: 40px;
 }
